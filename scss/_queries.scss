@@ -1,0 +1,63 @@
+// MEDIA QUERY MANAGER
+/*
+0 - 600px:      Phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+1200 - 1800px:  Laptops
+1800px + :      Big desktop
+*/
+
+// @mixin respond-phone {
+//   @media (max-width: 600px) {
+//     @content;
+//   }
+// }
+
+/* &brakepoint argument choices:
+- phone
+- tab-port
+- tab-land
+- big-desktop
+*/
+
+// ORDER: Base + typography > general layout + grid > poage layout > components
+
+// 1em=16px
+
+@mixin respond($brakepoint) {
+  //500px
+  @if $brakepoint == small-phone {
+    @media (max-width: 31.25em) {
+      @content;
+    }
+  }
+
+  // 600px
+  @if $brakepoint == phone {
+    @media (max-width: 37.5em) {
+      @content;
+    }
+  }
+  // 900px
+  @if $brakepoint == tab-port {
+    @media (max-width: 56.25em) {
+      @content;
+    }
+  }
+  // 1200px
+  @if $brakepoint == tab-land {
+    @media (max-width: 75em) {
+      @content;
+    }
+  }
+  // 1800px
+  @if $brakepoint == big-desktop {
+    @media (min-width: 112.5em) {
+      @content;
+    }
+  }
+}
+
+// @include respond(tab-port) {
+//   padding: 2rem;
+// }

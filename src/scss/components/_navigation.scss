@@ -1,0 +1,145 @@
+@import "../queries";
+
+.nav {
+  position: sticky;
+  width: 90%;
+  padding: 2rem 5%;
+  z-index: 10;
+
+  background-color: transparent;
+  animation: moveInNav 1s ease-out;
+  backdrop-filter: blur(3px);
+
+  &__logo {
+    color: #333;
+    font-size: 1.4rem;
+
+    span {
+      font-family: "Great Vibes", cursive;
+      font-size: 2.5rem;
+    }
+  }
+
+  &__list {
+    gap: 3rem;
+
+    @include respond(phone) {
+      display: none !important;
+    }
+  }
+
+  &__link {
+    transition: color 0.3s;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}
+
+.navigation-mobile {
+  display: none;
+  overflow-y: hidden;
+
+  @include respond(phone) {
+    display: block;
+  }
+}
+
+.toggle {
+  flex-direction: column;
+
+  &__btn {
+    background-color: transparent;
+    border: none;
+  }
+
+  &__checked {
+    .toggle__bar {
+      opacity: 1;
+      background: #36383f;
+    }
+
+     .toggle__bar:nth-of-type(1) {
+      transform: rotate(45deg) translate(0.3rem, 1rem);
+    }
+
+     .toggle__bar:nth-of-type(3) {
+      transform: rotate(-45deg) translate(-0.4rem, 0rem);
+    }
+
+     .toggle__bar:nth-of-type(2) {
+      opacity: 0;
+      transform: rotate(0deg) scale(0.2, 0.2);
+    }
+
+    ~ ul {
+      right: 0;
+    }
+  } 
+
+  &__bar {
+    display: flex;
+    width: 3rem;
+    height: 2px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #333;
+    border-radius: 3px;
+    z-index: 1;
+    transition: transform 0.4s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+
+    &:nth-last-child(1) {
+      transform-origin: 0% 0%;
+    }
+
+    &:nth-last-child(2) {
+      transform-origin: 0% 100%;
+    }
+  }
+}
+
+.toggle-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+  background-color: rgb(26, 26, 26, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 5px #5f5f5f;
+  margin: 0;
+  height: 100vh;
+  overflow-x: hidden;
+  position: fixed;
+  right: -100%;
+  transition: right 0.4s cubic-bezier(0.77, 0.2, 0.05, 1);
+  top: 0;
+  width: 80vw;
+
+  &__item {
+    transition-delay: 2s;
+
+    a {
+      text-decoration: none;
+      color: $color-primary;
+      opacity: 1;
+      font-size: 2.2rem;
+      font-weight: 400;
+      transition: 0.2s;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+.r-0 {
+  right: 0 !important;
+}
+
+.r-100 {
+  right: -100% !important;
+}

@@ -14,7 +14,7 @@ export const callProjects = function (data) {
   const markup = data.map(data => `
     <div class="portfolio__item">
       <li class="portfolio__link">
-        <img src="/${data.img}.png" alt="${data.title}" class="portfolio__img" />
+        <img src="../img/${data.img}.png" alt="${data.title}" class="portfolio__img" />
         <div class="portfolio__hover">
           <h4>${data.title}</h4>
           <p>${data.lang}</p>

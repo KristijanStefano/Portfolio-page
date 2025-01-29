@@ -1,4 +1,3 @@
-
 export const dropdown = function () {
   const headerEl = document.querySelector(".portfolio__box");  
   const btnDropEl = document.querySelector(".btn-toggle");
@@ -14,7 +13,7 @@ export const callProjects = function (data) {
   const markup = data.map(data => `
     <div class="portfolio__item">
       <li class="portfolio__link">
-        <img src="../img/${data.img}.png" alt="${data.title}" class="portfolio__img" />
+        <img src="${data.img}" alt="${data.title}" class="portfolio__img" />
         <div class="portfolio__hover">
           <h4>${data.title}</h4>
           <p>${data.lang}</p>

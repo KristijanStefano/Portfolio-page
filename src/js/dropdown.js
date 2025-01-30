@@ -18,7 +18,7 @@ export const callProjects = function (data) {
           <h4>${data.title}</h4>
           <p>${data.lang}</p>
           <p>
-            <a href="${data.url}">Tap to see the project</a>
+            <a href="${data.url}" target="_blank">Tap to see the project</a>
           </p>
         </div>
       </li>
